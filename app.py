@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-users = {"testuser": "password123"}  # dictionary for accounts
+users = {"": ""}  # dictionary for accounts
 
 @app.route('/')
 def home():
