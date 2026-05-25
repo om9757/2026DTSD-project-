@@ -16,9 +16,9 @@ def login():
         if username in users and users[username] == password:
             return redirect(url_for('menu'))
         elif username not in users:
-            return "❌ Account doesn’t exist. Please sign up."
+            return " Account doesn’t exist. Please sign up."
         else:
-            return "❌ Incorrect password. Try again."
+            return " Incorrect password. Try again."
     return render_template('login.html')
 
 @app.route('/signup', methods=['GET','POST'])
@@ -27,7 +27,7 @@ def signup():
         new_username = request.form['username']
         new_password = request.form['password']
         users[new_username] = new_password
-        return "✅ Account created successfully! You can now log in."
+        return " Account created successfully! You can now log in."
     return render_template('signup.html')
 
 @app.route('/menu')
