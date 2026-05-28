@@ -1,21 +1,22 @@
-/* Reset default margins/padding */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Background styling */
+/* Background */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #ff9966, #ff5e62);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;  /* full screen height */
+    align-items: flex-start;   /* prevents form from disappearing */
+    padding-top: 40px;         /* pushes form into view */
 }
 
-/* Login container */
+/* Main box */
 .container {
     background: #fff;
     padding: 30px;
@@ -25,13 +26,13 @@ body {
     text-align: center;
 }
 
-/* Heading */
+/* Title */
 h2 {
     margin-bottom: 20px;
     color: #ff5e62;
 }
 
-/* Input fields */
+/* Inputs */
 input {
     width: 90%;
     padding: 10px;
@@ -70,4 +71,18 @@ p {
     margin-top: 15px;
     font-size: 14px;
 }
+
+.error-box {
+    background-color: #ffe0e0;
+    border: 1px solid #ff5e62;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.error-box p {
+    color: #ff0000;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 
