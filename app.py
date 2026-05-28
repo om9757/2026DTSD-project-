@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
-
-app = Flask(__name__)
-
 import json
 import os
+
+app = Flask(__name__)
 
 # Load users from file if exists
 if os.path.exists("users.json"):
@@ -16,7 +15,7 @@ else:
 def home():
     return redirect(url_for('login'))
 
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -33,25 +32,28 @@ def login():
         # Correct login
         return redirect(url_for('menu'))
 
+    # Default GET request → show login page
     return render_template('login.html')
 
-@app.route('/signup', methods=['GET','POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
         new_username = request.form['username']
         new_password = request.form['password']
 
+        # Prevent duplicate usernames
         if new_username in users:
-            return "Username already exists."
+            return render_template('signup.html', error="Username already exists.")
 
+        # Save new account
         users[new_username] = new_password
-
-        # Save to file
         with open("users.json", "w") as f:
             json.dump(users, f)
 
+        # Redirect to login after successful signup
         return redirect(url_for('login'))
 
+    # Default GET request → show signup page
     return render_template('signup.html')
 
 @app.route('/menu')
