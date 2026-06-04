@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container menu-container">
+    <h2>Our Menu</h2>
+
+    <div class="menu-grid">
+
+        <!-- DRINKS -->
+        <div class="menu-item">
+            <h3>Coke</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Coke.png') }}" class="menu-image">
+            <p>Price: $3.50</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Sprite</h3>
+            <img src="{{ url_for('static', filename='Images_menu/sprite.png') }}" class="menu-image">
+            <p>Price: $3.50</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Orange Juice</h3>
+            <img src="{{ url_for('static', filename='Images_menu/orange-juice.png') }}" class="menu-image">
+            <p>Price: $4.00</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <!-- BURGERS -->
+        <div class="menu-item">
+            <h3>Chicken Burger</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Chicken Burger.png') }}" class="menu-image">
+            <p>Price: $8.50</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Classic Beef Burger</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Classic Beef.png') }}" class="menu-image">
+            <p>Price: $9.00</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Veggie Burger</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Veggie Burger.png') }}" class="menu-image">
+            <p>Price: $8.00</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Veggie Delight</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Veggie Delight.png') }}" class="menu-image">
+            <p>Price: $7.50</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <!-- PIZZA -->
+        <div class="menu-item">
+            <h3>Pepperoni Pizza</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Pepperoni.png') }}" class="menu-image">
+            <p>Price: $12.00</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Margherita Pizza</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Margherita.png') }}" class="menu-image">
+            <p>Price: $11.00</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <!-- SIDES -->
+        <div class="menu-item">
+            <h3>Garlic Bread</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Garlic Bread.png') }}" class="menu-image">
+            <p>Price: $4.50</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Fries</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Fries.png') }}" class="menu-image">
+            <p>Price: $3.00</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Nuggets</h3>
+            <img src="{{ url_for('static', filename='Images_menu/Nuggets.png') }}" class="menu-image">
+            <p>Price: $5.00</p>
+            <button>Add to Cart</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
