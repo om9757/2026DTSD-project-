@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="checkout-container">
+    <h1>Your Cart</h1>
+
+    {% if cart %}
+        <form action="{{ url_for('update_cart') }}" method="POST">
+            {% for item in cart %}
+                <div class="cart-item">
+                    <h3>{{ item.item }}</h3>
+                    <p>Price: ${{ item.price }}</p>
+                    
+                    <!-- Quantity selector that auto-submits -->
+                    <label>Quantity:</label>
+                    <input type="number" name="quantity_{{ loop.index }}" 
+                           value="{{ item.quantity if item.quantity else 1 }}" 
+                           min="1" onchange="this.form.submit()">
+                </div>
+            {% endfor %}
+
+            <div class="cart-total">
+                <h2>Total: ${{ total }}</h2>
+            </div>
+        </form>
+
+        <!-- Proceed to checkout -->
+        <div class="confirm-section">
+            <a href="{{ url_for('checkout') }}" class="confirm-button">Proceed to Checkout</a>
+        </div>
+
+        <!-- Add more items -->
+        <div class="confirm-section">
+            <a href="{{ url_for('menu') }}" class="confirm-button">Add More Items</a>
+        </div>
+
+    {% else %}
+        <h2>Your cart is empty</h2>
+        <a href="{{ url_for('menu') }}" class="confirm-button">Go to Menu</a>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
+
+

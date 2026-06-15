@@ -1,105 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Menu</title>
+    <meta charset="UTF-8">
+    <title>Restaurant Menu</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<div class="container menu-container">
-    <h2>Our Menu</h2>
+<div class="menu-container">
+    <h1>RESTAURANT MENU</h1>
 
     <div class="menu-grid">
 
-        <!-- DRINKS -->
+        <!-- Chicken Burger -->
         <div class="menu-item">
-            <h3>Coke</h3>
-            <img src="{{ url_for('static', filename='Images_menu/Coke.png') }}" class="menu-image">
-            <p>Price: $3.50</p>
-            <button>Add to Cart</button>
-        </div>
-
-        <div class="menu-item">
-            <h3>Sprite</h3>
-            <img src="{{ url_for('static', filename='Images_menu/sprite.png') }}" class="menu-image">
-            <p>Price: $3.50</p>
-            <button>Add to Cart</button>
-        </div>
-
-        <div class="menu-item">
-            <h3>Orange Juice</h3>
-            <img src="{{ url_for('static', filename='Images_menu/orange-juice.png') }}" class="menu-image">
-            <p>Price: $4.00</p>
-            <button>Add to Cart</button>
-        </div>
-
-        <!-- BURGERS -->
-        <div class="menu-item">
-            <h3>Chicken Burger</h3>
+            <div class="tag popular">Popular</div>
             <img src="{{ url_for('static', filename='Images_menu/Chicken Burger.png') }}" class="menu-image">
+            <h3>Chicken Burger</h3>
+            <p>Juicy grilled chicken with fresh lettuce and mayo.</p>
             <p>Price: $8.50</p>
-            <button>Add to Cart</button>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Chicken Burger">
+                <input type="hidden" name="price" value="8.50">
+                <button type="submit">Add to Cart</button>
+            </form>
         </div>
 
+        <!-- Classic Beef Burger -->
         <div class="menu-item">
-            <h3>Classic Beef Burger</h3>
+            <div class="tag new">New!</div>
             <img src="{{ url_for('static', filename='Images_menu/Classic Beef.png') }}" class="menu-image">
+            <h3>Classic Beef Burger</h3>
+            <p>Traditional beef patty with cheese and tomato.</p>
             <p>Price: $9.00</p>
-            <button>Add to Cart</button>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Classic Beef Burger">
+                <input type="hidden" name="price" value="9.00">
+                <button type="submit">Add to Cart</button>
+            </form>
         </div>
 
+        <!-- Veggie Burger -->
         <div class="menu-item">
-            <h3>Veggie Burger</h3>
             <img src="{{ url_for('static', filename='Images_menu/Veggie Burger.png') }}" class="menu-image">
+            <h3>Veggie Burger</h3>
+            <p>Healthy vegetarian patty with fresh vegetables.</p>
             <p>Price: $8.00</p>
-            <button>Add to Cart</button>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Veggie Burger">
+                <input type="hidden" name="price" value="8.00">
+                <button type="submit">Add to Cart</button>
+            </form>
         </div>
 
+        <!-- Pepperoni Pizza -->
         <div class="menu-item">
-            <h3>Veggie Delight</h3>
-            <img src="{{ url_for('static', filename='Images_menu/Veggie Delight.png') }}" class="menu-image">
-            <p>Price: $7.50</p>
-            <button>Add to Cart</button>
-        </div>
-
-        <!-- PIZZA -->
-        <div class="menu-item">
-            <h3>Pepperoni Pizza</h3>
             <img src="{{ url_for('static', filename='Images_menu/Pepperoni.png') }}" class="menu-image">
+            <h3>Pepperoni Pizza</h3>
+            <p>Classic pepperoni with mozzarella cheese.</p>
             <p>Price: $12.00</p>
-            <button>Add to Cart</button>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Pepperoni Pizza">
+                <input type="hidden" name="price" value="12.00">
+                <button type="submit">Add to Cart</button>
+            </form>
         </div>
 
+        <!-- Margherita Pizza -->
         <div class="menu-item">
-            <h3>Margherita Pizza</h3>
             <img src="{{ url_for('static', filename='Images_menu/Margherita.png') }}" class="menu-image">
+            <h3>Margherita Pizza</h3>
+            <p>Fresh tomato, basil, and mozzarella.</p>
             <p>Price: $11.00</p>
-            <button>Add to Cart</button>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Margherita Pizza">
+                <input type="hidden" name="price" value="11.00">
+                <button type="submit">Add to Cart</button>
+            </form>
         </div>
 
-        <!-- SIDES -->
+        <!-- Coke -->
         <div class="menu-item">
-            <h3>Garlic Bread</h3>
-            <img src="{{ url_for('static', filename='Images_menu/Garlic Bread.png') }}" class="menu-image">
-            <p>Price: $4.50</p>
-            <button>Add to Cart</button>
+            <img src="{{ url_for('static', filename='Images_menu/Coke.png') }}" class="menu-image">
+            <h3>Coke</h3>
+            <p>Refreshing cold drink.</p>
+            <p>Price: $3.50</p>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Coke">
+                <input type="hidden" name="price" value="3.50">
+                <button type="submit">Add to Cart</button>
+            </form>
         </div>
 
+        <!-- Sprite -->
         <div class="menu-item">
-            <h3>Fries</h3>
+            <img src="{{ url_for('static', filename='Images_menu/sprite.png') }}" class="menu-image">
+            <h3>Sprite</h3>
+            <p>Lemon-lime soda.</p>
+            <p>Price: $3.50</p>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Sprite">
+                <input type="hidden" name="price" value="3.50">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <!-- Orange Juice -->
+        <div class="menu-item">
+            <img src="{{ url_for('static', filename='Images_menu/orange-juice.png') }}" class="menu-image">
+            <h3>Orange Juice</h3>
+            <p>Freshly squeezed orange juice.</p>
+            <p>Price: $4.00</p>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Orange Juice">
+                <input type="hidden" name="price" value="4.00">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <!-- Fries -->
+        <div class="menu-item">
             <img src="{{ url_for('static', filename='Images_menu/Fries.png') }}" class="menu-image">
+            <h3>Fries</h3>
+            <p>Crispy golden fries.</p>
             <p>Price: $3.00</p>
-            <button>Add to Cart</button>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Fries">
+                <input type="hidden" name="price" value="3.00">
+                <button type="submit">Add to Cart</button>
+            </form>
         </div>
 
+        <!-- Nuggets -->
         <div class="menu-item">
-            <h3>Nuggets</h3>
             <img src="{{ url_for('static', filename='Images_menu/Nuggets.png') }}" class="menu-image">
+            <h3>Nuggets</h3>
+            <p>Crunchy chicken nuggets.</p>
             <p>Price: $5.00</p>
-            <button>Add to Cart</button>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Nuggets">
+                <input type="hidden" name="price" value="5.00">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <!-- Garlic Bread -->
+        <div class="menu-item">
+            <img src="{{ url_for('static', filename='Images_menu/Garlic Bread.png') }}" class="menu-image">
+            <h3>Garlic Bread</h3>
+            <p>Toasted bread with garlic butter.</p>
+            <p>Price: $4.50</p>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="item" value="Garlic Bread">
+                <input type="hidden" name="price" value="4.50">
+                <button type="submit">Add to Cart</button>
+            </form>
         </div>
 
     </div>
+
+    <!-- Go to Cart button -->
+    <div class="checkout-section">
+        <a href="{{ url_for('cart') }}" class="checkout-button">Go to Cart</a>
+    </div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("added") === "true") {
+        alert("Your item has been added!");
+    }
+</script>
 
 </div>
 
