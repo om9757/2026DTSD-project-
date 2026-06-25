@@ -107,7 +107,7 @@
 
         <!-- Orange Juice -->
         <div class="menu-item">
-            <img src="{{ url_for('static', filename='Images_menu/orange-juice.png') }}" class="menu-image">
+            <img src="{{ url_for('static', filename='Images_menu/orange-juce.png') }}" class="menu-image">
             <h3>Orange Juice</h3>
             <p>Freshly squeezed orange juice.</p>
             <p>Price: $4.00</p>
@@ -163,12 +163,9 @@
     <div class="checkout-section">
         <a href="{{ url_for('cart') }}" class="checkout-button">Go to Cart</a>
     </div>
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("added") === "true") {
-        alert("Your item has been added!");
-    }
-</script>
+
+
+
 
 </div>
 
