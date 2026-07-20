@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="checkout-container">
+    <h1>Order Confirmed!</h1>
+
+    <p>Thank you, <strong>{{ fullname }}</strong>.</p>
+
+    <h2>Delivery Details</h2>
+    <p>{{ address }}, {{ city }}, {{ postcode }}</p>
+    <p>Phone: {{ phone }}</p>
+
+    <h2>Order Summary</h2>
+    <table class="cart-table">
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+        </tr>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.item }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>${{ "%.2f"|format(item.price * item.quantity) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="cart-total">
+        Total: ${{ "%.2f"|format(total) }}
+    </div>
+
+    <h2>Payment Information</h2>
+    <p class="cart-message"> Please pay when your order is delivered.  
+    The delivery person will collect the money at your home.</p>
+
+    <p>Estimated delivery time: 30–45 minutes.</p>
+
+    <a href="{{ url_for('menu') }}" class="confirm-button">Back to Menu</a>
+</div>
+
+</body>
+</html>

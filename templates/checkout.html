@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="checkout-container">
+    <h1>Checkout</h1>
+
+    {% if cart %}
+        <h2>Your Order</h2>
+        <table class="cart-table">
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            {% for item in cart %}
+            <tr>
+                <td>{{ item.item }}</td>
+                <td>${{ item.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>${{ "%.2f"|format(item.price * item.quantity) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="cart-total">
+            Total: ${{ "%.2f"|format(total) }}
+        </div>
+
+        <!-- Address Form -->
+        <h2>Delivery Address</h2>
+        <form action="{{ url_for('confirm_order') }}" method="POST">
+            <input type="text" name="fullname" placeholder="Full Name" required><br>
+            <input type="text" name="address" placeholder="Street Address" required><br>
+            <input type="text" name="city" placeholder="City" required><br>
+            <input type="text" name="postcode" placeholder="Postcode" required><br>
+            <input type="text" name="phone" placeholder="Phone Number" required><br>
+
+            <button type="submit" class="confirm-button">Confirm Order</button>
+        </form>
+
+    {% else %}
+        <h2>Your cart is empty</h2>
+        <a href="{{ url_for('menu') }}" class="confirm-button">Go to Menu</a>
+    {% endif %}
+</div>
+
+</body>
+</html>
+

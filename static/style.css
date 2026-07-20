@@ -1,22 +1,18 @@
-/* Reset */
+/* ---------------- RESET ---------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Background */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #ff9966, #ff5e62);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;   /* prevents form from disappearing */
-    padding-top: 40px;         /* pushes form into view */
+    color: #333;
 }
 
-/* Main box */
+/* ---------------- LOGIN / SIGNUP ---------------- */
 .container {
     background: #fff;
     padding: 30px;
@@ -24,17 +20,16 @@ body {
     border-radius: 12px;
     box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
     text-align: center;
+    margin: 40px auto;
 }
 
-
-/* Title */
 h2 {
     margin-bottom: 20px;
     color: #ff5e62;
 }
 
-/* Inputs */
-input {
+input[type=text],
+input[type=password] {
     width: 90%;
     padding: 10px;
     margin: 8px 0;
@@ -43,7 +38,6 @@ input {
     font-size: 14px;
 }
 
-/* Buttons */
 button {
     background-color: #ff5e62;
     color: white;
@@ -56,12 +50,10 @@ button {
     font-size: 15px;
     margin-top: 10px;
 }
-
 button:hover {
     background-color: #ff9966;
 }
 
-/* Links */
 a {
     color: #ff5e62;
     text-decoration: none;
@@ -86,14 +78,7 @@ p {
     margin-bottom: 10px;
 }
 
-/* menu page*/
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ff9966, #ff5e62);
-    color: #333;
-}
-
+/* ---------------- MENU PAGE ---------------- */
 .menu-container {
     width: 95%;
     max-width: 1400px;
@@ -106,11 +91,6 @@ h1 {
     color: #fff;
     margin-bottom: 20px;
 }
-
-.categories {
-    margin: 20px 0;
-}
-
 
 .menu-grid {
     display: grid;
@@ -143,16 +123,10 @@ h1 {
     font-size: 12px;
     color: #fff;
 }
+.tag.popular { background: purple; }
+.tag.new { background: blue; }
 
-.tag.popular {
-    background: purple;
-}
-
-.tag.new {
-    background: blue;
-}
-
-button {
+.menu-item button {
     background: #e74c3c;
     color: #fff;
     border: none;
@@ -160,8 +134,7 @@ button {
     border-radius: 6px;
     cursor: pointer;
 }
-
-button:hover {
+.menu-item button:hover {
     background: #c0392b;
 }
 
@@ -181,11 +154,11 @@ button:hover {
     display: inline-block;
     transition: background 0.3s ease;
 }
-
 .checkout-button:hover {
     background: #1e8449;
 }
 
+/* ---------------- CART & CHECKOUT ---------------- */
 .checkout-container {
     width: 90%;
     max-width: 800px;
@@ -197,45 +170,100 @@ button:hover {
     text-align: center;
 }
 
-
-/* Chackout page */
 .checkout-container h1 {
     margin-bottom: 20px;
     color: #e74c3c;
 }
 
-.cart-items {
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-bottom: 20px;
-    text-align: left;
+}
+.cart-table th, .cart-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
 }
 
-.cart-item {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
+.quantity-box {
+    width: 60px;
+    text-align: center;
 }
 
 .cart-total {
     margin: 20px 0;
     font-size: 20px;
     font-weight: bold;
+    color: red;
+    text-align: right;
 }
 
-.confirm-section {
-    margin-top: 20px;
+.cart-message {
+    color: blue;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
 }
 
 .confirm-button {
-    background: #27ae60;
-    color: #fff;
-    border: none;
-    padding: 20px 40px;
-    border-radius: 10px;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    display: inline-block;
+    padding: 10px 20px;
+    background: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+}
+.confirm-button:hover {
+    background: #ff9966;
 }
 
-.confirm-button:hover {
-    background: #1e8449;
+/* Address form */
+input[type=text] {
+    width: 80%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* ---------------- CONFIRMATION PAGE ---------------- */
+.confirmation-container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.confirmation-container h1 {
+    margin-bottom: 20px;
+    color: #27ae60; /* green for success */
+}
+
+.confirmation-container h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #e74c3c;
+}
+
+.confirmation-container p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.payment-message {
+    background-color: #f9f9f9;
+    border: 1px solid #27ae60;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 16px;
+    color: #2c3e50;
+    font-weight: bold;
 }

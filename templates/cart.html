@@ -11,30 +11,42 @@
 
     {% if cart %}
         <form action="{{ url_for('update_cart') }}" method="POST">
-            {% for item in cart %}
-                <div class="cart-item">
-                    <h3>{{ item.item }}</h3>
-                    <p>Price: ${{ item.price }}</p>
-                    
-                    <!-- Quantity selector that auto-submits -->
-                    <label>Quantity:</label>
-                    <input type="number" name="quantity_{{ loop.index }}" 
-                           value="{{ item.quantity if item.quantity else 1 }}" 
-                           min="1" onchange="this.form.submit()">
-                </div>
-            {% endfor %}
+            <table class="cart-table">
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+                {% for item in cart %}
+                <tr>
+                    <td>{{ item.item }}</td>
+                    <td>${{ item.price }}</td>
+                    <td>
+                        <input type="number" name="quantity_{{ loop.index }}" 
+                               value="{{ item.quantity if item.quantity else 1 }}" 
+                               min="1" max="50" class="quantity-box">
+                    </td>
+                    <td>${{ "%.2f"|format(item.price * item.quantity) }}</td>
+                </tr>
+                {% endfor %}
+            </table>
 
             <div class="cart-total">
-                <h2>Total: ${{ total }}</h2>
+                <h2>Total: ${{ "%.2f"|format(total) }}</h2>
             </div>
+
+            {% if message %}
+            <p class="cart-message">{{ message }}</p>
+            {% endif %}
+
+            <button type="submit" class="confirm-button">Update Cart</button>
         </form>
 
-        <!-- Proceed to checkout -->
         <div class="confirm-section">
             <a href="{{ url_for('checkout') }}" class="confirm-button">Proceed to Checkout</a>
         </div>
 
-        <!-- Add more items -->
         <div class="confirm-section">
             <a href="{{ url_for('menu') }}" class="confirm-button">Add More Items</a>
         </div>
@@ -48,5 +60,3 @@
 
 </body>
 </html>
-
-
