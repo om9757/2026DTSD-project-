@@ -35,11 +35,12 @@
         <!-- Address Form -->
         <h2>Delivery Address</h2>
         <form action="{{ url_for('confirm_order') }}" method="POST">
-            <input type="text" name="fullname" placeholder="Full Name" required><br>
-            <input type="text" name="address" placeholder="Street Address" required><br>
-            <input type="text" name="city" placeholder="City" required><br>
-            <input type="text" name="postcode" placeholder="Postcode" required><br>
-            <input type="text" name="phone" placeholder="Phone Number" required><br>
+
+            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required><br>
+            <input type="text" id="address" name="address" placeholder="Street Address" required><br>
+            <input type="text" id="city" name="city" placeholder="City" required><br>
+            <input type="text" id="postcode" name="postcode" placeholder="Postcode" required><br>
+            <input type="text" id="phone" name="phone" placeholder="Phone Number" required><br>
 
             <button type="submit" class="confirm-button">Confirm Order</button>
         </form>
@@ -49,6 +50,41 @@
         <a href="{{ url_for('menu') }}" class="confirm-button">Go to Menu</a>
     {% endif %}
 </div>
+
+<script>
+// VALIDATION SCRIPT
+function validateInputs() {
+    const fullname = document.getElementById("fullname");
+    const postcode = document.getElementById("postcode");
+    const phone = document.getElementById("phone");
+
+    // FULL NAME: only letters + spaces
+    fullname.addEventListener("input", function() {
+        if (!/^[A-Za-z ]*$/.test(fullname.value)) {
+            alert("Full Name can only contain letters.");
+            fullname.value = fullname.value.replace(/[^A-Za-z ]/g, "");
+        }
+    });
+
+    // POSTCODE: only numbers
+    postcode.addEventListener("input", function() {
+        if (!/^[0-9]*$/.test(postcode.value)) {
+            alert("Postcode must contain numbers only.");
+            postcode.value = postcode.value.replace(/[^0-9]/g, "");
+        }
+    });
+
+    // PHONE NUMBER: only numbers
+    phone.addEventListener("input", function() {
+        if (!/^[0-9]*$/.test(phone.value)) {
+            alert("Phone Number must contain numbers only.");
+            phone.value = phone.value.replace(/[^0-9]/g, "");
+        }
+    });
+}
+
+validateInputs();
+</script>
 
 </body>
 </html>

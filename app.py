@@ -32,13 +32,34 @@ def signup():
     if request.method == 'POST':
         new_username = request.form['username']
         new_password = request.form['password']
+
+        # USERNAME VALIDATION
+        if len(new_username) > 10:
+            return render_template('signup.html',
+                                   message="Please enter a username with 10 characters or less.")
+
         if new_username in users:
-            return render_template('signup.html', error="Username already exists.")
+            return render_template('signup.html',
+                                   message="This username is already taken. Try another one.")
+
+        # PASSWORD VALIDATION
+        if len(new_password) < 4:
+            return render_template('signup.html',
+                                   message="Please enter a password with at least 4 characters.")
+
+        if len(new_password) > 12:
+            return render_template('signup.html',
+                                   message="Please enter a password with 12 characters or less.")
+
+        # SAVE USER
         users[new_username] = new_password
         with open("users.json", "w") as f:
             json.dump(users, f)
+
         return redirect(url_for('login'))
+
     return render_template('signup.html')
+
 
 # ---------------- MENU ----------------
 @app.route('/menu')

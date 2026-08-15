@@ -178,12 +178,11 @@ h1 {
 .cart-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
-}
+    margin-bottom: 200px;
 .cart-table th, .cart-table td {
     border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
+    padding: 100px;
+    text-align: center;}
 }
 
 .quantity-box {

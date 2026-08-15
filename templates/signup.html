@@ -16,6 +16,13 @@
 
         <button type="submit">Sign Up</button>
     </form>
+  {% if message %}
+<div class="error-box">
+    <p>{{ message }}</p>
+</div>
+{% endif %}
+
+  
     <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
 </div>
 </body>
